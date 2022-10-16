@@ -1,4 +1,5 @@
 # Brain Stroke prediction- DecisionTree
+`Last Updated: 16th October 2022`
 
 A stroke is an interruption of the blood supply to any part of the brain. If blood flow was stopped for longer than a few seconds and the brain cannot get blood and oxygen, brain cells can die, and the abilities controlled by that area of the brain are lost. In this Notebook we will use some features to see wether we will be able to predict the stoke or not? This is just a theoretical Machine Learning Model that will analyze the data and determine where the stroke can occur.
 
@@ -26,30 +27,37 @@ Points to keep in mind when working with a machine learning model
 ## Tools Needed:
 
 1. Jupyter (IDE)
-2. https://www.kaggle.com (To download the dataset)
-3. https://dreampuf.github.io/GraphvizOnline/ (To visualize the graph)
+2. Github (To pull repository)
+
+## Installation Instructions:
+
+1. Clone the repository.
+2. Open terminal and 'cd' to the directory where to saved the repository.
+3. Run the command `pip install -r requirements.txt`.
+4. Now start working on the repository.
 
 ## Methodology:
 
 1. IMPORTING LIBRARIES AND LOADING DATA
 2. DATA EXPLORATION
-3. VIZUALIZATION
-4. DATA PREPROCESSING
+3. DATA PREPROCESSING
 
     a. Target and Feature values / Train Test Split
-5. MODEL BUILDING
+4. MODEL BUILDING
 
-    a. Decision Tree Classifier and Gini method
+    a. KNeighborsClassifier
 
-    b. Prediction Model File Generation
+    b. Support Vector Classification (SVC)
 
-    c. Prediction Model File Loading
+    c. Decision Tree Classifier
 
-    d. Model accuracy score
+    d. Random Forest Classifier
 
-        i. Testing Accuracy
-        ii. Training Accuracy
-6. MODEL WORKING GRAPH
+    e. Multi-layer Perceptron classifier
+
+    f. Stacking Classifier
+
+5. Prediction Testing
 
 
 ## In-Depth Working of this model:
@@ -72,30 +80,24 @@ Points to keep in mind when working with a machine learning model
 4. df.describe: It generates descriptive statistics.
 5. unique: It returns unique values from the dataframe.
 
-### Vizualization
-
-1. Cufflinks: It connects plotly with pandas to create charts directly on the dataframe.
-2. go_offline: This enables us to use plotly offline rather than online.
-3. offline=Flase: It enables the charts to not render locally.
-4. df.groupby: It enables us to group dataframe using a mapper or a series of colomns.
-5. df.values: It returns a numpy representation of the dataframe.
-6. df.iplot: It is for building interactive plots.
-7. df.sum: It returns a sum of values over the requested axis.
-
 ### Data Preprocessing
 
 1. df.isnull: It detects missing values.
 2. df.drop: It drops speficied labels from rows and columns.
 3. get_dummies: It converts categorial variable into dummy/indicator variable.
+4. df.dropna: It drops coloumns and rows where null value is present.
 
 ### Model Building
 
-1. criterion: The function to measure the quality of a split.
-2. random_state: It controls the randomness of the estimator.
-3. max_depth: The maximum depth of the tree.
-4. clf_gini.fit: It is used to fit training data.
-5. joblib.dump: It collects all the learning and dumps it in one file.
-6. joblib.load: It reconstructs the file for use which is created by 'dump' method.
-7. clf_gini.predict: It is a method which operates using numpy.argmax function on the output of predic_probo.
-8. clf_gini.score: It returns the mean accuracy on the given test data and labels.
-9. export_graphviz: It is used to export a decision tree in a '.dot' format.
+1. KNeighborsClassifier: Classifier implementing the k-nearest neighbors vote.
+2. Support Vector Classification (SVC): SVC is class capable of performing binary and multi-class classification on a dataset.
+3. Decision Tree Classifier: Decision Trees (DTs) are a non-parametric supervised learning method used for classification and regression. The goal is to create a model that predicts the value of a target variable by learning simple decision rules inferred from the data features. A tree can be seen as a piecewise constant approximation.
+4. Random Forest Classifier: A random forest is a meta estimator that fits a number of decision tree classifiers on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting. The sub-sample size is controlled with the max_samples parameter if bootstrap=True (default), otherwise the whole dataset is used to build each tree.
+5. Multi-layer Perceptron classifier: This model optimizes the log-loss function using LBFGS or stochastic gradient descent.
+6. Stacking Classifier: Stacked generalization consists in stacking the output of individual estimator and use a classifier to compute the final prediction. Stacking allows to use the strength of each individual estimator by using their output as input of a final estimator.
+7.. joblib.dump: It collects all the learning and dumps it in one file.
+8. joblib.load: It reconstructs the file for use which is created by 'dump' method.
+
+## Prediction Testing
+
+1. random: It generates random output.
